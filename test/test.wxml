@@ -1,0 +1,18 @@
+<view class="book">
+  <view class="main" bindtouchstart="touchStart" bindtouchmove="touchMove">
+    <view class="pages">
+      <block wx:for="{{pages}}" wx:key="item">
+        <view 
+          class="page {{nextList[index]}} {{prevList[index]}}"
+          style="z-index:{{5 - index}}"  
+        >
+          {{item}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="control">
+    <button class="prev" size="mini" bindtap="prev">上一页</button>
+    <button class="next" size="mini" bindtap="next">下一页</button>
+  </view>
+</view>

@@ -1,0 +1,109 @@
+.book {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 80rpx 30rpx;
+  position: relative;
+  overflow: hidden;
+}
+.main {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1600;
+  perspective: 1600;
+}
+.main .side {
+  width: 30rpx;
+  height: 80vh;
+  background-color: #e6d098;
+  border-radius: 0 15rpx 15rpx 0;
+  position: absolute;
+  left: -30rpx;
+}
+.main .pages {
+  width: 95%;
+  position: relative;
+  box-shadow: 30rpx 6rpx 20rpx 20rpx rgba(0,0,0,.15);  
+  border-radius: 15rpx;
+}
+.main .pages::before {
+  content: '';
+  width: 22rpx;
+  height: 78vh;
+  background-color: #e6d098;
+  border-radius: 0 15rpx 15rpx 0;
+  position: absolute;
+  right: -22rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  box-shadow: 0 0 20rpx 10rpx rgba(0,0,0,.22);  
+}
+.main .pages::after {
+  content: '';
+  width: 20rpx;
+  height: 76vh;
+  background-color: #e6d098;
+  border-radius: 0 15rpx 15rpx 0;
+  position: absolute;
+  right: -42rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -2;
+}
+.main .pages .page {
+  border-radius: 15rpx;
+  width: 100%;
+  height: 80vh;
+  line-height: 80vh;
+  text-align: center;
+  font-size: 80rpx;
+  background: #e6d098;
+  position: absolute;
+  left: 0;
+  transform-origin: top left;
+  animation-fill-mode: forwards;
+  box-sizing: border-box;
+}
+.main .pages .page::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5%;
+  background-image: linear-gradient(to right,rgba(0,0,0,.22),#e6d098);
+  border-radius: 15rpx;
+}		
+.control {
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.prev,.next {
+  font-size: 25rpx;
+}
+.prevAnimation {
+  animation: prev .6s ease-in;
+}
+.nextAnimation {
+  animation: next .6s ease-in;
+}
+@keyframes prev {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+@keyframes next {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
